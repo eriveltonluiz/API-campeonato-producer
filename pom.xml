@@ -15,8 +15,8 @@
 
   <properties>
     <packaging>jar</packaging>
-    <jdk.version>11</jdk.version>
-    <release.version>11</release.version>
+    <jdk.version>17</jdk.version>
+    <release.version>17</release.version>
     <micronaut.version>3.7.1</micronaut.version>
     <micronaut.runtime>netty</micronaut.runtime>
     <exec.mainClass>com.erivelton.campeonato.Application</exec.mainClass>
@@ -84,6 +84,10 @@
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut.kafka</groupId>
+      <artifactId>micronaut-kafka</artifactId>
     </dependency>
   </dependencies>
 
