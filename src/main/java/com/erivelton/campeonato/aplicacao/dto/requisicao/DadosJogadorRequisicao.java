@@ -1,4 +1,4 @@
-package com.erivelton.campeonato.aplicacao;
+package com.erivelton.campeonato.aplicacao.dto.requisicao;
 
 import io.micronaut.core.annotation.Introspected;
 import lombok.*;

@@ -1,5 +1,7 @@
-package com.erivelton.campeonato.aplicacao;
+package com.erivelton.campeonato.aplicacao.controller;
 
+import com.erivelton.campeonato.aplicacao.dto.requisicao.ConfrontoRequisicao;
+import com.erivelton.campeonato.aplicacao.dto.requisicao.DadosEquipeRequisicao;
 import com.erivelton.campeonato.infraestrutura.mensageria.CampeonatoClient;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
