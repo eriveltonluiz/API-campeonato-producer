@@ -1,14 +1,14 @@
 package com.erivelton.campeonato.dto.requisicao;
 
 import io.micronaut.core.annotation.Introspected;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 
 @Introspected
 @NoArgsConstructor
 @Getter
-@ToString
 public class DadosJogadorRequisicao {
 
     @NotBlank

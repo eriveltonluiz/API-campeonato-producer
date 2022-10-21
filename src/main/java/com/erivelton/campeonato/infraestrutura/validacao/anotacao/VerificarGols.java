@@ -1,4 +1,6 @@
-package com.erivelton.campeonato.infraestrutura.validacao;
+package com.erivelton.campeonato.infraestrutura.validacao.anotacao;
+
+import com.erivelton.campeonato.infraestrutura.validacao.constraint.VerificarGolsValidacao;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

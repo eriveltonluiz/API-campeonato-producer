@@ -1,8 +1,9 @@
 package com.erivelton.campeonato.dto.requisicao;
 
-import com.erivelton.campeonato.infraestrutura.validacao.VerificarGols;
+import com.erivelton.campeonato.infraestrutura.validacao.anotacao.VerificarGols;
 import io.micronaut.core.annotation.Introspected;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -13,7 +14,6 @@ import java.util.List;
 @Introspected
 @NoArgsConstructor
 @Getter
-@ToString
 @VerificarGols
 public class DadosEquipeRequisicao {
 
