@@ -23,7 +23,7 @@ public class CriacaoCampeonatoServico implements OrganizacaoCampeonato{
         try {
             verificarQuantidadeTimes.validar(dadosEquipeRequisicao.size());
         } catch (ViolacaoVerificacaoQuantidadeTimesException e) {
-            throw new RuntimeException(e);
+            throw new ViolacaoVerificacaoQuantidadeTimesException(e.getMessage());
         }
         campeonatoClient.enviarEquipes(dadosEquipeRequisicao);
     }
