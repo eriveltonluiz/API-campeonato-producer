@@ -1,4 +1,4 @@
-package com.erivelton.campeonato.aplicacao.config;
+package com.erivelton.campeonato.infraestrutura.configuracao;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

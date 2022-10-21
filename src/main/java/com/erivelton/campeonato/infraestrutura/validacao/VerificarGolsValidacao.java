@@ -1,6 +1,6 @@
 package com.erivelton.campeonato.infraestrutura.validacao;
 
-import com.erivelton.campeonato.aplicacao.dto.requisicao.ConfrontoRequisicao;
+import com.erivelton.campeonato.dto.requisicao.ConfrontoRequisicao;
 import com.erivelton.campeonato.dominio.ViolacaoVerificacaoGolsException;
 import io.micronaut.core.annotation.AnnotationValue;
 import io.micronaut.validation.validator.constraints.ConstraintValidator;
