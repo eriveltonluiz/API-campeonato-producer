@@ -11,6 +11,11 @@ import lombok.RequiredArgsConstructor;
 
 import javax.validation.Valid;
 
+//1 passo adicionar validação da qtdMaximaDe jogadores
+//2 passo melhorar as mensagens de validação
+//3 passo corrigir tópicos da validação(falta do atributo mensagem)
+
+
 @RequiredArgsConstructor
 @Validated
 @Controller("/api/campeonato")
@@ -19,7 +24,7 @@ public class CampeonatoController {
     private final OrganizacaoCampeonato organizacaoCampeonato;
 
     @Post
-    public void criar(@Body @Valid DadosCampeonatoRequisicao dadosCampeonato){
+    public void criar(@Body @Valid DadosCampeonatoRequisicao dadosCampeonato) throws Exception{
         organizacaoCampeonato.criar(dadosCampeonato.getDadosEquipe());
     }
 

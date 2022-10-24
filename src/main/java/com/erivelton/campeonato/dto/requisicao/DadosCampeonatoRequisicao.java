@@ -1,5 +1,6 @@
 package com.erivelton.campeonato.dto.requisicao;
 
+import com.erivelton.campeonato.infraestrutura.validacao.anotacao.VerificarQuantidadeMaximaJogadores;
 import com.erivelton.campeonato.infraestrutura.validacao.anotacao.VerificarQuantidadeTimes;
 import io.micronaut.core.annotation.Introspected;
 import lombok.Getter;
@@ -14,6 +15,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Introspected
+@VerificarQuantidadeMaximaJogadores
 public class DadosCampeonatoRequisicao {
 
     @NotNull
@@ -27,5 +29,9 @@ public class DadosCampeonatoRequisicao {
 
     public DadosCampeonatoRequisicao(Integer quantidadeMaximaJogadores) {
         this.quantidadeMaximaJogadores = quantidadeMaximaJogadores;
+    }
+
+    public void adicionarDadosEquipe(List<DadosEquipeRequisicao> dadosCampeonato){
+        this.dadosEquipe.addAll(dadosCampeonato);
     }
 }
