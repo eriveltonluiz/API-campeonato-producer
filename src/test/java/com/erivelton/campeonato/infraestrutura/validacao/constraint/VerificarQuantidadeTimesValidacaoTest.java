@@ -1,4 +1,4 @@
-package com.erivelton.campeonato.infraestrutura.validacao;
+package com.erivelton.campeonato.infraestrutura.validacao.constraint;
 
 import com.erivelton.campeonato.dominio.ViolacaoVerificacaoQuantidadeTimesException;
 import com.erivelton.campeonato.dto.requisicao.DadosEquipeRequisicao;

@@ -27,4 +27,12 @@ public class DadosEquipeRequisicao {
     public DadosEquipeRequisicao(@NotBlank String equipe) {
         this.equipe = equipe;
     }
+
+    public int quantidadeJogadores(){
+        return jogadores.size();
+    }
+
+    public void adiconarJoagadores(List<DadosJogadorRequisicao> dadosJogador){
+        this.jogadores.addAll(dadosJogador);
+    }
 }
