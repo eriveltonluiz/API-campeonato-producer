@@ -15,16 +15,15 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Introspected
-@VerificarQuantidadeMaximaJogadores
 public class DadosCampeonatoRequisicao {
 
     @NotNull
-    @Min(5)
+    @Min(6)
     private Integer quantidadeMaximaJogadores;
 
     @NotNull
-    @Valid
     @VerificarQuantidadeTimes
+    @Valid
     private List<DadosEquipeRequisicao> dadosEquipe = new ArrayList<>();
 
     public DadosCampeonatoRequisicao(Integer quantidadeMaximaJogadores) {

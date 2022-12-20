@@ -5,9 +5,7 @@ import com.erivelton.campeonato.dto.requisicao.DadosEquipeRequisicao;
 
 import java.util.List;
 
-public interface OrganizacaoCampeonato {
+public interface OrganizacaoCampeonato<T> {
 
-    void criar(List<DadosEquipeRequisicao> dadosEquipeRequisicao);
-
-    void mapearConfronto(ConfrontoRequisicao confrontoRequisicao);
+    void mapear(T objeto);
 }

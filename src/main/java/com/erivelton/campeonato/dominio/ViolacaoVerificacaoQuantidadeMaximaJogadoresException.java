@@ -1,21 +1,23 @@
 package com.erivelton.campeonato.dominio;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ViolacaoVerificacaoQuantidadeMaximaJogadoresException extends RuntimeException{
 
-    private List<String> violacoes = new ArrayList<>();
+    private Map<String, String> violacoes = new HashMap<>();
 
     public ViolacaoVerificacaoQuantidadeMaximaJogadoresException(String mensagem){
         super(mensagem);
     }
 
-    public void adicionarViolacoes(List<String> violacoes){
-        this.violacoes.addAll(violacoes);
+    public void adicionarViolacoes(Map<String, String> violacoes){
+        this.violacoes.putAll(violacoes);
     }
 
-    public List<String> getViolacoes() {
+    public Map<String, String> getViolacoes() {
         return violacoes;
     }
 

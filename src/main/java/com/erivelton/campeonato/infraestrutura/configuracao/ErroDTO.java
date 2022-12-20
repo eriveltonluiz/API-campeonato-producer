@@ -6,9 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 public class ErroDTO {
 
@@ -16,5 +17,21 @@ public class ErroDTO {
 
     @JsonFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     private LocalDateTime timestamp;
+
     private String title;
+
+    private List<DetalhesErroDTO> details = new ArrayList<>();
+
+    public ErroDTO(Integer status, LocalDateTime timestamp, String title) {
+        this.status = status;
+        this.timestamp = timestamp;
+        this.title = title;
+    }
+
+    public ErroDTO(Integer status, LocalDateTime timestamp, String title, List<DetalhesErroDTO> details) {
+        this.status = status;
+        this.timestamp = timestamp;
+        this.title = title;
+        this.details.addAll(details);
+    }
 }

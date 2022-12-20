@@ -2,14 +2,16 @@ package com.erivelton.campeonato.infraestrutura.validacao.constraint;
 
 import com.erivelton.campeonato.dominio.ViolacaoVerificacaoQuantidadeMaximaJogadoresException;
 import com.erivelton.campeonato.dto.requisicao.DadosCampeonatoRequisicao;
+import com.erivelton.campeonato.dto.requisicao.DadosEquipeRequisicao;
 import com.erivelton.campeonato.infraestrutura.validacao.anotacao.VerificarQuantidadeMaximaJogadores;
 import io.micronaut.core.annotation.AnnotationValue;
 import io.micronaut.validation.validator.constraints.ConstraintValidator;
 import io.micronaut.validation.validator.constraints.ConstraintValidatorContext;
 import jakarta.inject.Singleton;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Singleton
@@ -18,10 +20,9 @@ public class VerificarQuantidadeMaximaJogadoresValidacao implements ConstraintVa
     @Override
     public boolean isValid(DadosCampeonatoRequisicao value, AnnotationValue<VerificarQuantidadeMaximaJogadores> annotationMetadata, ConstraintValidatorContext context) {
         value.getDadosEquipe().removeIf(equipe -> equipe.quantidadeJogadores() >= value.getQuantidadeMaximaJogadores());
-        List<String> violacoes = new ArrayList<>(
+        Map<String, String> violacoes = new HashMap<>(
                 value.getDadosEquipe().stream()
-                        .map(equipe -> String.format("%s ultrapassou a quantidade máxima de jogadores inscritos", equipe.getEquipe()))
-                        .collect(Collectors.toList())
+                        .collect(Collectors.toMap(DadosEquipeRequisicao::getEquipe, valor -> "ultrapassou a quantidade máxima de jogadores inscritos"))
         );
 
         if(violacoes.isEmpty()){

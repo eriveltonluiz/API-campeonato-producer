@@ -1,16 +1,15 @@
-package com.erivelton.campeonato.infraestrutura.validacao.constraint;
+package com.erivelton.campeonato.controle.constraint;
 
 import com.erivelton.campeonato.dominio.ViolacaoVerificacaoQuantidadeMaximaJogadoresException;
 import com.erivelton.campeonato.dto.requisicao.DadosCampeonatoRequisicao;
 import com.erivelton.campeonato.dto.requisicao.DadosEquipeRequisicao;
 import com.erivelton.campeonato.dto.requisicao.DadosJogadorRequisicao;
+import com.erivelton.campeonato.infraestrutura.validacao.constraint.VerificarQuantidadeMaximaJogadoresValidacao;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import jakarta.inject.Inject;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -36,10 +35,10 @@ class VerificarQuantidadeMaximaJogadoresValidacaoTest {
                         () -> verificarQuantidadeMaximaJogadoresValidacao.isValid(dadosCampeonato, null, null)
                 );
 
-        List<String> violacoesEsperadas = new ArrayList<>(
+        Map<String, String> violacoesEsperadas = new HashMap<>(
                 dadosCampeonato.getDadosEquipe().stream()
-                        .map(equipe -> String.format("%s ultrapassou a quantidade máxima de jogadores inscritos", equipe.getEquipe()))
-                        .collect(Collectors.toList())
+//                        .map(equipe -> String.format("%s ultrapassou a quantidade máxima de jogadores inscritos", equipe.getEquipe()))
+                        .collect(Collectors.toMap(DadosEquipeRequisicao::getEquipe, valor -> "ultrapassou a quantidade máxima de jogadores inscritos"))
         );
 
         assertEquals(violacoesEsperadas, violacaoVerificacaoQuantidadeMaximaJogadoresException.getViolacoes());

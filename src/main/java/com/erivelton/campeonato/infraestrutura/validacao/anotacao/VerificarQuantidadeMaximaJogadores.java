@@ -4,11 +4,12 @@ import com.erivelton.campeonato.infraestrutura.validacao.constraint.VerificarQua
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.Valid;
 import java.lang.annotation.*;
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
+@Target({ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.TYPE_USE})
 @Constraint(validatedBy = {VerificarQuantidadeMaximaJogadoresValidacao.class})
 public @interface VerificarQuantidadeMaximaJogadores {
 

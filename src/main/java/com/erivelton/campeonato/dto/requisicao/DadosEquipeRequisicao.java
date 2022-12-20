@@ -1,6 +1,5 @@
 package com.erivelton.campeonato.dto.requisicao;
 
-import com.erivelton.campeonato.infraestrutura.validacao.anotacao.VerificarGols;
 import io.micronaut.core.annotation.Introspected;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,19 +7,20 @@ import lombok.NoArgsConstructor;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
 @Introspected
 @NoArgsConstructor
 @Getter
-@VerificarGols
 public class DadosEquipeRequisicao {
 
     @NotBlank
     private String equipe;
 
     @NotNull
+    @Size(min = 6)
     @Valid
     private List<DadosJogadorRequisicao> jogadores = new ArrayList<>();
 

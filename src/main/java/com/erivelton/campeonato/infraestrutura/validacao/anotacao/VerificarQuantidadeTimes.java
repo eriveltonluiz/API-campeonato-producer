@@ -11,6 +11,7 @@ import java.lang.annotation.*;
 @Target(ElementType.FIELD)
 @Constraint(validatedBy = {VerificarQuantidadeTimesValidacao.class})
 public @interface VerificarQuantidadeTimes {
+    String message() default "Quantidade de times não condoizente com modelo exponencial a base 2";
 
     Class<?>[] groups() default {};
 
