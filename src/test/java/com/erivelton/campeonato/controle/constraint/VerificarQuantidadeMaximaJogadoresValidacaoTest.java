@@ -69,8 +69,8 @@ class VerificarQuantidadeMaximaJogadoresValidacaoTest {
                 )
         );
 
-        dadosEquipe.get(0).adiconarJoagadores(jogadoresTime1);
-        dadosEquipe.get(1).adiconarJoagadores(jogadoresTime2);
+        dadosEquipe.get(0).adicionarJogadores(jogadoresTime1);
+        dadosEquipe.get(1).adicionarJogadores(jogadoresTime2);
 
         dadosCampeonato.adicionarDadosEquipe(dadosEquipe);
 

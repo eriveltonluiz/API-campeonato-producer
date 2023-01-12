@@ -5,9 +5,13 @@ import com.erivelton.campeonato.infraestrutura.mensageria.CampeonatoClient;
 import com.erivelton.campeonato.infraestrutura.servico.validacao.ValidacaoCustomizada;
 import jakarta.inject.Named;
 import jakarta.inject.Singleton;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Singleton
 public class ElaboracaoConfrontoServico implements OrganizacaoCampeonato<ConfrontoRequisicao>{
+
+    private static final Logger LOG = LoggerFactory.getLogger(ElaboracaoConfrontoServico.class);
 
     private final CampeonatoClient campeonatoClient;
 
@@ -20,7 +24,10 @@ public class ElaboracaoConfrontoServico implements OrganizacaoCampeonato<Confron
 
     @Override
     public void mapear(ConfrontoRequisicao confrontoRequisicao) {
+        LOG.info("Validação do confronto das equipes");
         validacaoCustomizada.limite(confrontoRequisicao);
+
         campeonatoClient.enviarConfronto(confrontoRequisicao);
+        LOG.info("Confronto {} enviado para fila da peça de confrontos de torneio", confrontoRequisicao);
     }
 }

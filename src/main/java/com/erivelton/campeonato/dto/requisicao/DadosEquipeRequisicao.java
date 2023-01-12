@@ -20,7 +20,7 @@ public class DadosEquipeRequisicao {
     private String equipe;
 
     @NotNull
-    @Size(min = 6)
+    @Size(min = 6, message = "Número de jogadores deve ser no mínimo 6")
     @Valid
     private List<DadosJogadorRequisicao> jogadores = new ArrayList<>();
 
@@ -32,7 +32,7 @@ public class DadosEquipeRequisicao {
         return jogadores.size();
     }
 
-    public void adiconarJoagadores(List<DadosJogadorRequisicao> dadosJogador){
+    public void adicionarJogadores(List<DadosJogadorRequisicao> dadosJogador){
         this.jogadores.addAll(dadosJogador);
     }
 }
